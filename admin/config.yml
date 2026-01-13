@@ -1,3 +1,38 @@
+site_url: https://laptechpc.netlify.app
+auth_endpoint: auth
+
 backend:
   name: git-gateway
-  branch: main   # OR master — must match GitHub
+  branch: main   # change to master ONLY if your repo uses master
+
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: inventory
+    label: Inventory Items
+    folder: inventory
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - name: title
+        label: Item Name
+        widget: string
+
+      - name: category
+        label: Category
+        widget: select
+        options:
+          - Desktop Computers
+          - Laptops
+          - Apple Devices
+          - Chargers & Adapters
+          - Accessories & Extras
+
+      - name: description
+        label: Description
+        widget: text
+
+      - name: image
+        label: Photo
+        widget: image
